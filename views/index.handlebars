@@ -1,0 +1,45 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Eat-Da-Burger</h1>    
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm col-4">
+            <h6>Burgers</h6>
+            <ul id="ul-burgers" class="list-group list-group-flush">
+            {{#each data.burgers}}
+                {{#unless devoured}}
+                    {{> burgers/burgers-block this}}
+                {{/unless}}
+            {{/each}}
+            </ul>
+        </div>
+        <div class="col-sm col-8">
+            <img id="burger-img" src="/assets/img/d69l2is-5997674f-1ba1-443e-8633-8ce99b8e8515.png">            
+        </div> 
+        <div class="col-sm col-4">
+            <h6>Already Eaten</h6>
+            <ul class="list-group list-group-flush">
+            {{#each data.burgersDevoured}}
+                {{#if devoured}}
+                    {{> burgers/burgers-eaten-block this}}
+                {{/if}}
+            {{/each}}
+            </ul>
+        </div>       
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-8 offset-md-2">
+            <form>
+                <div class="form-group">
+                    <label for="input-burger-name">Burger Name</label>
+                    <input type="text" class="form-control" id="input-burger-name" placeholder="Burger Name">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                <h6>Enter a burger you want to eat, then hit the submit button.</h6>
+            </form>
+        </div>
+    </div>
+</div>
